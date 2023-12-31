@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issues List</title>
+</head>
+<body>
+        <p>List of issues</p>
+        07/12/2023
+        <ul>
+            <li><s>CSBH-Epipe tests must use only r1 - r6 (avoid using r7 - r10)</s></li>
+        </ul>
+        08/12/2023
+        <ul>
+            <li><s>Config port 1/1/c22/1 into r1 and r2 and add it into the inventory</s></li>
+            <li><s>icon-epipe-101 is not being deleted on ICM_Deletion#4       --- > It's causing the next issue</s></li>
+            <li><s>ICM_Deletion#4 is not deleting the LAG and the ESI afterwards</s></li>
+            <li>ICM_Deletion#2 and ICM_Deletion#6 cannot be combined, because the VPLS service needs a encap type (dot1q or qinq) for r3 and the icon-epipe-101 payload has null for r3. 
+                The solutions could be not combining both tests, or changing the payload for all the tests related to icon-epipe-101.</li>
+        </ul>
+        13/12/2023
+        <ul>
+            <li>Find a way to clean the ports automatically before the regression test or to check if the breakout port are fully configured.</li>
+            <li>The tests should be failure proof. Meaning, all the tests in the regression should pass, regardless of any nodes pre-config.</li>
+            <li>The tests that compare the initial-final config can have a method to capture the initial config, instead of relying on port pre-config.</li>
+            <li><s>Audit issue is being caused in the Admin-state test that is not adjusting the original service to it's original config.</s></li>
+            <li>The rollback tests with FOR loop needs a timeout of 20s for all the intents (CSBH-MGMT already has it)</li>
+        </ul>
+        16/12/2023
+        <ul>
+            <li>Somehow, the EVI number used for the CSBH-Epipe services in 12.2 and 13 are not the same from the Resource Adm (the EVI from the nodes and RM are not matching).</li>
+            <li>The error in the 12.2 may be blocking the deletion of 13. Maybe it's a good idea to change the 13's payload to use the epipe-101 payload.</li>
+        </ul>
+</body>
+</html>
